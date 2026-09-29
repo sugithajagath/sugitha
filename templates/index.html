@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EduGenie - AI Question Generator</title>
+<style>
+body{font-family:Arial;background:#f0f8ff;padding:20px;text-align:center}
+.box{background:white;padding:20px;border-radius:10px;max-width:600px;margin:auto;box-shadow:0 0 10px gray}
+input,select,button{padding:10px;margin:10px;width:80%;border-radius:5px}
+button{background:#4CAF50;color:white;border:none;cursor:pointer}
+.result{text-align:left;background:#eef;margin-top:20px;padding:15px;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>EduGenie - AI Question Generator</h2>
+<form action="/generate" method="post">
+<input type="text" name="topic" placeholder="Enter Topic (e.g. Photosynthesis)" required>
+<select name="qtype"><option>MCQ</option><option>Short Answer</option><option>Long Answer</option></select>
+<button type="submit">Generate Question</button>
+</form>
+{% if result %}
+<div class="result"><h3>Result for {{topic}}:</h3><p>{{result}}</p></div>
+{% endif %}
+</div>
+</body>
+</html>
